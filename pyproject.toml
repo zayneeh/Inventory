@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "periculum-ds-internship-technical-assessment"
+version = "0.1.0"
+description = ""
+authors = ["Zayneeh <tairuzainab5@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+pypdf2 = "^3.0.1"
+pytesseract = "^0.3.13"
+pdf2image = "^1.17.0"
+pillow = "^11.2.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

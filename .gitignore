@@ -1,0 +1,9 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Poetry virtual environments 
+.venv/
+
+# Temporary OCR image
+temp_image.png
