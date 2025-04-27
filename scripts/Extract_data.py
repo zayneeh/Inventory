@@ -35,8 +35,9 @@ def get_data_from_pdf(file_path):
     pdf_data = pdf_reader(file_path)
     if pdf_data:
         print(f"PDF read successfully")
-        print(pdf_data)
+        return pdf_data
     else:
-        print("PDF reader failed. Triggering OCR fallback...")
-        ocr_result = ocr_reader(pdf_data) 
+        print("PDF reader failed. OCR fallback...")
+        ocr_result = ocr_reader(file_path)
+        return ocr_result
 
