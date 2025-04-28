@@ -1,9 +1,7 @@
 # Periculum-DS-Internship---Technical-Assessment
 
-"""
-A modular data pipeline for processing home inventory PDF documents,
+A data pipeline for processing home inventory PDF documents,
 extracting structured data, and preparing it for analytics.
-"""
 
 ## Overview
 
