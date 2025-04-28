@@ -41,17 +41,15 @@ def extract_owner_info(raw_text):
     return owner_name, owner_address, owner_phone
 
 #Function to Extract data from raw text
-def extract_data(raw_text, aligned_lines):
+def extract_data(raw_text, aligned_rows):
     inventories = []
 
     owner_name, owner_address, owner_phone = extract_owner_info(raw_text)
     owner_info = OwnerInfo(owner_name, owner_address, owner_phone)
 
     # Process inventory items
-    for line in aligned_lines:
-        parts = re.split(r'\s+', line)
-        
-        if len(parts) >= 7:
+    for parts in aligned_rows:
+        if len(parts) >= 8:
             try:
                 area = parts[1]
                 item_description = parts[2]
@@ -59,19 +57,17 @@ def extract_data(raw_text, aligned_lines):
                 purchase_date_raw = parts[4]
                 style = parts[5]
                 serial_number = parts[6]
-                value_raw = parts[7] if len(parts) > 7 else "0"
+                value_raw = parts[7]
 
                 # Parse date
                 try:
                     purchase_date = datetime.strptime(purchase_date_raw, "%d/%m/%Y").isoformat()
                 except ValueError:
-                     try:
-                         purchase_date = datetime.strptime(purchase_date_raw, "%d/%m/%y").isoformat()
-                     except ValueError:
-                         purchase_date = None 
-                        
+                    try:
+                        purchase_date = datetime.strptime(purchase_date_raw, "%d/%m/%y").isoformat()
+                    except ValueError:
+                        purchase_date = None 
 
-            
                 value = value_raw.replace("$", "").replace(",", "").strip()
 
                 # Create inventory object
@@ -84,7 +80,7 @@ def extract_data(raw_text, aligned_lines):
                 )
                 inventories.append(item)
             except Exception as e:
-                print(f"Failed to process line: {line}")
+                print(f"Failed to process row: {parts}")
                 print(f"Reason: {str(e)}")
                 continue
 
