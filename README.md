@@ -16,6 +16,7 @@ This project implements:
 
 
 ## Project Structure
+```text
 PERICULUM-DS-INTERNSHIP---TECHNICAL-ASSESSMENT/
 ├── data/
 │   ├── home_inventory.pdf
@@ -33,6 +34,7 @@ PERICULUM-DS-INTERNSHIP---TECHNICAL-ASSESSMENT/
 ├── poetry.lock
 ├── pyproject.toml
 └── README.md
+```
 
 ## Installation
 
