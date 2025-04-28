@@ -1,21 +1,19 @@
 # Periculum-DS-Internship---Technical-Assessment
 
-"""
-A modular data pipeline for processing home inventory PDF documents,
+A data pipeline for processing home inventory PDF documents,
 extracting structured data, and preparing it for analytics.
-"""
 
 ## Overview
 
-
 This project implements:
+
 - Processing of home inventory data from PDF files
 - Parsing and structuring textual content
 - Extraction of key information about inventory items and owners
 - Returning a structured JSON response for analytics
 
-
 ## Project Structure
+
 ```text
 PERICULUM-DS-INTERNSHIP---TECHNICAL-ASSESSMENT/
 ├── data/
@@ -47,20 +45,24 @@ cd Periculum-DS-Internship---Technical-Assessment
 ```
 
 # Create and activate a virtual environment
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
+
 # Install dependencies
+
 ```bash
 pip install -r requirements.txt
 
- #if using Poetry 
+ #if using Poetry
 
 Poetry install
 ```
 
-# Run Pipeline 
+# Run Pipeline
+
 ```bash
 python main.py
 ```
