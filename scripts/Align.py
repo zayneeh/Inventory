@@ -1,23 +1,12 @@
 import re
 
-def align_data(raw_text):
-    lines = raw_text.split('\n')
-    aligned = []
-    buffer = ""
+def align_content(text):
+    matches = re.findall(r'(\d+)\s+([A-Za-z\s]+)\s+([A-Za-z\s]+)\s+([A-Za-z\s]+)\s+(\d{2}/\d{2}/\d{4})\s+([A-Za-z]+)\s+([A-Z0-9]+)\s+([\d,]+\.\d+\$?)', text)
+    if not matches:
+        print("No structured rows found.")
+        return []
 
-    for line in lines:
-        line = line.strip()
-        if not line:
-            continue
-
-        if re.match(r'^\d+', line):  
-            if buffer:
-                aligned.append(buffer.strip())
-            buffer = line
-        else:
-            buffer += ' ' + line  
-
-    if buffer:
-        aligned.append(buffer.strip())
-
-    return aligned
+    data = []
+    for match in matches:
+        data.append(match)
+    return data
